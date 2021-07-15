@@ -1,0 +1,6 @@
+NAME="Standard Library"
+CODENAME="std"
+AUTHORS=("AXON <axonasif@gmail.com>")
+VERSION="1.0"
+DEPENDENCIES=()
+REPOSITORY=""
