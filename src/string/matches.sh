@@ -1,14 +1,17 @@
 function string::matches() {
-	local _string _match;
+	local _string _match _arg;
 	local _print=false;
 
-	case "${@}" in
-		--print|-p)
-			shift;
-			_print=true;
+	for _arg in "${@}"; do {
+		case "$_arg" in
+			--print|-p)
+				shift;
+				_print=true;
 			;;
-	esac
+		esac
+	} done
 
+	# String == Regex
 	if [[ $1 =~ $2 ]]; then {
 		if [ "$_print" == "true" ]; then {
 			echo "${BASH_REMATCH[@]}";
