@@ -44,10 +44,4 @@ function log::warn() {
 	echo -e "[***] \033[1;37mwarn\033[0m: $@";
 }
 
-function log::error() {
-	local _retcode="${2:-$?}";
-	local _source="${BB_ERR_SOURCE:-"${BASH_SOURCE[-1]}"}";
-
-	>&2 echo -e "[!!!] \033[1;31merror\033[0m[$_retcode]: ${_source}[$BASH_LINENO]: $1";
-	return "$_retcode";
-}
+# log::error is internally provided by bashbox
