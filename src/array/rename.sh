@@ -1,4 +1,4 @@
-function rename_array() {
+function array::rename() {
 	local _array="$1";
 	local _array_new_name="$2";
 	local _arr_alloc;
