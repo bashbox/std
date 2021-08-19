@@ -1,5 +1,5 @@
 ### From https://github.com/dylanaraps/pure-bash-bible
-btail() {
+tail() {
     # Usage: tail "n" "file"
     local _line;
     mapfile -tn 0 _line < "$2";

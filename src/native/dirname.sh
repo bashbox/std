@@ -1,5 +1,5 @@
 ### From https://github.com/dylanaraps/pure-bash-bible
-bdirname() {
+dirname() {
     # Usage: dirname "path"
     local tmp=${1:-.}
 

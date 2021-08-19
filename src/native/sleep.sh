@@ -1,4 +1,4 @@
 ### From https://github.com/dylanaraps/pure-bash-bible
-bsleep() {
+sleep() {
     read -rt "$1" <> <(:) || :;
 }
