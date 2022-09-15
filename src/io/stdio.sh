@@ -9,6 +9,6 @@ function io::stdio::to_file() {
 		} fi
 	} done
 	# Main action
-	STD_IO_PPID=$$ exec > >(while test -e "/proc/$STD_IO_PPID" && read -r ___stdout; do echo "$___stdout" && echo "$___stdout" >> "$_stdout_target"; done) \
-		2> >(test -e "/proc/$STD_IO_PPID" && while read -r ___stderr >&2; do echo "$___stderr" && echo "$___stderr" >> "$_stderr_target"; done);
+	exec > >(while test -e "/proc/$$" && read -r ___stdout; do echo "$___stdout" && echo "$___stdout" >> "$_stdout_target"; done) \
+		2> >(test -e "/proc/$$" && while read -r ___stderr >&2; do echo "$___stderr" && echo "$___stderr" >> "$_stderr_target"; done);
 }
