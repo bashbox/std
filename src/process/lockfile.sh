@@ -11,6 +11,5 @@ function lockfile() {
 		} done
 	} fi
 	printf '%s\n' "$$" > "$lock_file";
-	# shellcheck disable=SC2064
-	trap "rm -f '$lock_file' 2>/dev/null" EXIT;
+	printf '%s\n' "$lock_file"; # Return the lockfile path for handling cleanup
 }
