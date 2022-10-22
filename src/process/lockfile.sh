@@ -5,7 +5,7 @@ function lockfile() {
 	local lock_file;
 	lock_file="$(get_temp::dir)/.${name}.lock";
 	if test -e "$lock_file"; then {
-		log::info "Waiting for another job to finish";
+		log::info "Waiting for another ${name} job to finish";
 		until test ! -e "$lock_file" || ! { kill -0 "$(< "$lock_file")"; } 2>/dev/null; do {
 			sleep 0.5;
 		} done
