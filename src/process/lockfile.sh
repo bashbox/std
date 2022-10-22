@@ -5,7 +5,7 @@ function lockfile() {
 	local lock_file;
 	lock_file="$(get_temp::dir)/.${name}.lock";
 	if test -e "$lock_file"; then {
-		until test ! -e "$lock_file" || ! { kill -0 "$(< "$lock_file")"; } 2>/dev/null; do {
+		until ! { kill -0 "$(< "$lock_file")"; } 2>/dev/null; do {
 			sleep 0.5;
 		} done
 	} fi
