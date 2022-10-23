@@ -4,6 +4,9 @@ function trap::pop() {
   local sig
   for sig in $*; do
     local stack_name="$(trap::stack_name "$sig")"
+    if test ! -v "$stack_name"; then {
+      eval "${stack_name}=()"
+    } fi
     local count; eval 'count=${#'"${stack_name}"'[@]}'
     if [[ $count -lt 1 ]]; then return 127; fi
     local new_trap

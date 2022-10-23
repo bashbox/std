@@ -4,7 +4,7 @@ function trap::stack_name() {
 }
 
 function trap::extract() {
-  printf '%s\n' "${3}"
+  printf '%s\n' "${3:-}"
 }
 
 function trap::get() {
