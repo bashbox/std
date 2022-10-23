@@ -1,4 +1,5 @@
-use std::process::get_temp;
+use box::process::get_temp;
+use box::builtin::trap;
 
 function lockfile() {
 	
@@ -22,6 +23,6 @@ function lockfile() {
 	} done
 	
 	# shellcheck disable=SC2064
-	trap "rm -f '$lock_file' 2>/dev/null" ${SIGNALS:-EXIT};
+	trap::append "rm -f '$lock_file' 2>/dev/null" ${SIGNALS:-EXIT};
 
 }
