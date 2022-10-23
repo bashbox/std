@@ -1,5 +1,5 @@
 use box::process::get_temp;
-use box::builtin::trap;
+use box::builtin::trap::append;
 
 function lockfile() {
 	
