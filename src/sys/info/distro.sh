@@ -7,6 +7,7 @@ function std::sys::info::cache_distro {
     } fi
 
     std::sys::info::cache_os;
+    : "${distro_shorthand:=on}";
 
     case $os in
         Linux|BSD|MINIX)
@@ -254,23 +255,6 @@ function std::sys::info::cache_distro {
     distro=${distro//Enterprise Server}
 
     [[ $distro ]] || distro="$os (Unknown)"
-
-    # Get OS architecture.
-    case $os in
-        Solaris|AIX|Haiku|IRIX|FreeMiNT)
-            machine_arch=$(uname -p)
-        ;;
-
-        *)  machine_arch=$kernel_machine ;;
-    esac
-
-    if [[ $os_arch == on ]]; then {
-        distro+=" $machine_arch"
-    } fi
-
-    if [[ ${ascii_distro:-auto} == auto ]]; then {
-        ascii_distro=$(trim_string "$distro")
-    } fi
 }
 
 function std::sys::info::distro::is_ubuntu {
