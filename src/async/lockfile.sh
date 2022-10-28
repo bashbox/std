@@ -9,7 +9,7 @@ function lockfile() {
 
 	# Print info when possible
 	if test -e "$lock_file"; then {
-		if ! { kill -0 "$(< "$lock_file")"; } 2>/dev/null; then {
+		if ! { kill -0 "$(< "$lock_file")"; }; then {
 			rm "$lock_file" 2>/dev/null || :;
 		} fi
 		log::info "Awaiting for another ${name} job to finish";
@@ -17,17 +17,17 @@ function lockfile() {
 
 	# Await for an existing process
 	for _ in {1..5}; do {
-		while { kill -0 "$(< "$lock_file")"; } 2>/dev/null; do {
+		while { kill -0 "$(< "$lock_file")"; }; do {
 			sleep 0.5;
 		} done
 	} done
 
 	# Await for locking
-	until (set -o noclobber && printf '%s\n' "$$" > "$lock_file") 2>/dev/null; do {
+	until (set -o noclobber && printf '%s\n' "$$" > "$lock_file"); do {
 		sleep 0.5;
 	} done
 	
 	# shellcheck disable=SC2064
 	trap::append "rm -f '$lock_file' 2>/dev/null" ${SIGNALS:-EXIT};
 
-}
+} 2>/dev/null
