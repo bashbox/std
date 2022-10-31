@@ -27,3 +27,6 @@ function std::sys::info::osarch::is_32bit {
     std::sys::info::cache_osarch;
     test "$osarch" == "32bit";
 }
+
+alias 'osarch::is_32bit'=std::sys::info::osarch::is_32bit;
+alias 'osarch::is_64bit'=std::sys::info::osarch::is_64bit;

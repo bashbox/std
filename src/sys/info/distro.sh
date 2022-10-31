@@ -262,3 +262,5 @@ function std::sys::info::distro::is_ubuntu {
 
     [[ "$distro" == "Ubuntu"* ]];
 }
+
+alias 'distro::is_ubuntu'=std::sys::info::distro::is_ubuntu
