@@ -4,7 +4,7 @@ use box::native::sleep;
 function process::preserve_sudo {
   if test "$EUID" -ne 0; then {
     if ! sudo -nv 2>/dev/null; then {
-      log::warn "Build command needs root for some operations, reqesting root...";
+      log::warn "$___self_NAME needs root for some operations, reqesting root...";
       sudo -v;
 
       # Perserve the root access
