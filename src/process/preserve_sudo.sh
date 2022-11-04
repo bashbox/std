@@ -12,7 +12,7 @@ function process::preserve_sudo {
         while sleep 30 && { kill -0 "$___self_PID"; } 2>/dev/null; do {
           sudo -v;
         } done
-      ) &
+      ) & disown;
     } fi
   } fi
 }
