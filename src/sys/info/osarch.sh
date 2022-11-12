@@ -29,9 +29,9 @@ function std::sys::info::osarch::is_32bit {
 }
 
 function osarch::is_32bit {
-    std::sys::info::osarch::is_32bit "$@";
+    std::sys::info::osarch::is_32bit;
 }
 
 function os_arch::is_64bit {
-    std::sys::info::osarch::is_64bit "$@";
+    std::sys::info::osarch::is_64bit;
 }
