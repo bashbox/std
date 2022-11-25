@@ -37,7 +37,7 @@
 # }
 
 function log::info() {
-	printf "[%%%] \033[1;37INFO\033[0m: %b%s%b\n" "$@";
+	printf "[%%%%%%] \033[1;37mINFO\033[0m: %b%s%b\n" "$@";
 }
 
 function log::warn() {
