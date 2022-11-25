@@ -37,11 +37,11 @@
 # }
 
 function log::info() {
-	printf "[%%%] \033[1;37INFO\033[0m: ${FORMAT:-%b%s%b\n}" "$@";
+	printf "[%%%] \033[1;37INFO\033[0m: ${LOG_FORMAT:-%b%s%b\n}" "$@";
 }
 
 function log::warn() {
-	printf "[***] \033[1;37mWARN\033[0m: ${FORMAT:-%b%s%b\n}" "$@" >&2;
+	printf "[***] \033[1;37mWARN\033[0m: ${LOG_FORMAT:-%b%s%b\n}" "$@" >&2;
 }
 
 # log::error is internally provided by bashbox
